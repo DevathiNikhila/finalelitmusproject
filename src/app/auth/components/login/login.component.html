@@ -1,0 +1,24 @@
+<div id="t" class="testbox">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 mt-4">
+      <br>
+        <h3>Login</h3>
+        <form loginform="ngForm" text-align="center">
+          <div class="form-group">
+            <br>
+            
+              <label id="icon" for="loginUsername">Username</label>
+              <input type="text" name="login" #login="ngModel" [(ngModel)] ="name" placeholder="UserName"  required>
+              <br><br><span class="help-block" *ngIf="login.invalid && login.touched">Username is required!</span><br>
+              <label id="icon" for="loginPassword">Password</label>
+              <input type="password"  name="password" #password="ngModel" placeholder="password" matTooltip='1.Password must be atleast 8 charcters &#13; 2.It must be Alphanumeric(a-z,A-Z,0-9) &#13; 3.It must contain atleast one symbol(@#/)' matTooltipClass="multiline-tooltip" matTooltipPosition="right" [(ngModel)]="pass" pattern="[a-zA-Z0-9@#/]{8,}" required>
+              <div class="alert-danger" *ngIf="password.errors?.pattern">Invalid Password!!<br>1.Password must be atleast 8 charcters<br> 2.It must be Alphanumeric(a-z,A-Z,0-9)<br> 3.It must contain atleast one symbol(@#/)</div>
+              <br>
+              <a [routerLink]="['/reset-password']">Forgot Password?</a>
+              <br><br>
+              <button type="button" class="button" value="ad-page" (click)="onBackButtonClick();" [disabled]='(!pass||!name||password.invalid)'><i class="fa fa-plus"></i>Login</button>
+          </div>    
+        </form>
+          <br><br><br><br><br><br><br>     
+    </div>
+  </div>

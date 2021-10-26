@@ -1,0 +1,53 @@
+<!--<div class="row">
+    <div class="col-md-6 offset-md-3 mt-4">
+        <h3>Register</h3>
+        <form align="center">
+            <div class="form-group">
+              <label for="registerUsername" align="left">Username</label><br>
+              <input type="text" 
+                     class="form-control" 
+                     id="registerUsername" 
+                     placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="registerEmail">Email</label><br>
+                <input type="email" 
+                       class="form-control" 
+                       id="registerEmail" 
+                       placeholder="Enter email">
+              </div>
+            <div class="form-group">
+              <label for="registerPassword">Password</label><br>
+              <input type="password" 
+                     class="form-control" 
+                     id="registerPassword" 
+                     placeholder="Password">
+            </div>
+            
+            <button type="submit" 
+                    class="btn btn-primary">Register <i class="fas fa-sign-in-alt"></i></button>
+          </form>
+    </div>
+</div>
+
+-->
+<div id="t" class="testbox">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 mt-4">
+      <br>
+        <h3>Register</h3>
+        <form loginform="ngForm" text-align="center">
+            <div class="form-group">
+              <br>
+              <pre><label id="icon" for="registerUsername">Username</label><input type="text" name="login" #login="ngModel" [(ngModel)] ="name" placeholder="Enter UserName"  required>
+              <br><br><span class="help-block" *ngIf="login.invalid && login.touched">Username is required!</span></pre>
+              <br>
+              <pre><label id="icon" for="registerEmail">Email</label><input type="email" class="form-control" id="registerEmail" placeholder="Enter email"></pre>  
+              <pre><label id="icon" for="registerPassword">Password</label><input type="password"  name="password" #password="ngModel" placeholder="password" matTooltip='1.Password must be atleast 8 charcters &#13;2.It must be Alphanumeric(a-z,A-Z,0-9) &#13;3.It must contain atleast one symbol(@#/)' matTooltipClass="multiline-tooltip" matTooltipPosition="right" [(ngModel)]="pass" pattern="[a-zA-Z0-9@#/]{8,}" required><div class="alert-danger" *ngIf="password.errors?.pattern">Invalid Password!!<br>1.Password must be atleast 8 charcters<br> 2.It must be Alphanumeric(a-z,A-Z,0-9)<br> 3.It must contain atleast one symbol(@#/)</div>
+              <button type="button" class="button" value="ad-page" (click)="onBackButtonClick();" [disabled]='(!pass||!name||password.invalid)'><i class="fas fa-plus"></i>Register </button></pre>
+            </div>            
+        </form><br><br><br><br><br><br><br>
+    </div>
+  </div>
+</div>
+
